@@ -1,0 +1,19 @@
+/* These values are NOT scoped to the component. This file being separate is purely for organization. */
+
+@import 'tailwindcss';
+
+@theme {
+	--animate-gradient-text-left: gradient-text-left 3s linear infinite;
+	@keyframes gradient-text-left {
+		to {
+			background-position: 200%;
+		}
+	}
+
+	--animate-gradient-text-right: gradient-text-right 3s linear infinite;
+	@keyframes gradient-text-right {
+		to {
+			background-position: 0%;
+		}
+	}
+}

@@ -1,0 +1,36 @@
+/* These values are NOT scoped to the component. This file being separate is purely for organization. */
+
+@import 'tailwindcss';
+
+.css-animated-border {
+	@apply relative cursor-pointer rounded-lg bg-stone-100 px-8 py-4 dark:bg-stone-700;
+}
+
+.css-animated-border::before,
+.css-animated-border::after {
+	@apply absolute -inset-1 -z-[1] rounded-xl;
+	content: '';
+	background-image: conic-gradient(from var(--gradient-angle), purple, #4f46e5, purple);
+	animation: 5s animated-border linear infinite;
+}
+
+.css-animated-border::after {
+	@apply opacity-50 blur-sm;
+}
+
+/* Browsers default to disallowing animations on CSS variables since some values are not suitable for animations. */
+/* The @property rule provides additional context to the browser, which then allows variables to be used in animations. */
+@property --gradient-angle {
+	syntax: '<angle>';
+	initial-value: 0deg;
+	inherits: false;
+}
+
+@keyframes animated-border {
+	from {
+		--gradient-angle: 0deg;
+	}
+	to {
+		--gradient-angle: 360deg;
+	}
+}

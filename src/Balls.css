@@ -1,0 +1,138 @@
+/* These values are NOT scoped to the component. This file being separate is purely for organization. */
+
+/* Primarily Tailwind styles */
+@import 'tailwindcss';
+
+@theme {
+	--animate-loading-spin-sm: loading-spin-sm 1s linear infinite;
+	--animate-loading-spin-md: loading-spin-md 2s linear infinite;
+	--animate-loading-spin-lg: loading-spin-lg 3s linear infinite;
+
+	@keyframes loading-spin-sm {
+		from {
+			transform: rotate(0deg) translateY(7px);
+		}
+		to {
+			transform: rotate(360deg) translateY(7px);
+		}
+	}
+
+	@keyframes loading-spin-md {
+		from {
+			transform: rotate(0deg) translateY(23px);
+		}
+		to {
+			transform: rotate(360deg) translateY(23px);
+		}
+	}
+
+	@keyframes loading-spin-lg {
+		from {
+			transform: rotate(0deg) translateY(39px);
+		}
+		to {
+			transform: rotate(360deg) translateY(39px);
+		}
+	}
+}
+
+/* Primarily CSS styles */
+/* TODO: The ball translates in the keyframes (the 3 and the 5) need to be updated for the offsets, which properly adjust the rings. Maybe also the largest ring if it isn't tied to the container size? */
+:root {
+	--ball-size: 20px;
+	--ball-border-color: #90a1b9; /* slate-400 */
+	--border-width: 2px;
+
+	--offset-mult-sm: 2;
+	--offset-mult-md: 6;
+}
+
+.balls {
+	position: relative;
+	display: grid;
+	width: calc(var(--ball-size) * 10);
+	height: calc(var(--ball-size) * 10);
+	place-items: center;
+
+	> div {
+		grid-column: 1;
+		grid-row: 1;
+		width: var(--ball-size);
+		height: var(--ball-size);
+		border-radius: 50%;
+		background-color: var(--ball-border-color);
+	}
+
+	> div:nth-child(1) {
+		animation: ball-circle-sm 1s linear infinite;
+	}
+
+	> div:nth-child(2) {
+		animation: ball-circle-md 2s linear infinite;
+	}
+
+	> div:nth-child(3) {
+		animation: ball-circle-lg 3s linear infinite;
+	}
+}
+
+.balls,
+.balls::before,
+.balls::after {
+	border-radius: 50%;
+	border-width: var(--border-width);
+	border-color: var(--ball-border-color);
+}
+
+.balls::before,
+.balls::after {
+	content: '';
+	position: absolute;
+	inset: 0;
+}
+
+.balls::before {
+	width: calc(var(--ball-size) * var(--offset-mult-sm));
+	height: calc(var(--ball-size) * var(--offset-mult-sm));
+	transform: translate(
+		calc(var(--ball-size) * calc(10 - var(--offset-mult-sm)) / 2 - var(--border-width)),
+		calc(var(--ball-size) * calc(10 - var(--offset-mult-sm)) / 2 - var(--border-width))
+	);
+}
+
+.balls::after {
+	width: calc(var(--ball-size) * var(--offset-mult-md));
+	height: calc(var(--ball-size) * var(--offset-mult-md));
+	transform: translate(
+		calc(var(--ball-size) * calc(10 - var(--offset-mult-md)) / 2 - var(--border-width)),
+		calc(var(--ball-size) * calc(10 - var(--offset-mult-md)) / 2 - var(--border-width))
+	);
+}
+
+/* Can't use calc() within translate() 😢 */
+@keyframes ball-circle-sm {
+	from {
+		transform: rotate(0deg) translateY(19px); /* var(--ball-size) - (var(--border-width) / 2) */
+	}
+	to {
+		transform: rotate(360deg) translateY(19px); /* var(--ball-size) - (var(--border-width) / 2) */
+	}
+}
+
+@keyframes ball-circle-md {
+	from {
+		transform: rotate(0deg) translateY(59px); /* 3 * var(--ball-size) - (var(--border-width) / 2) */
+	}
+	to {
+		transform: rotate(360deg) translateY(59px); /* 3 * var(--ball-size) - (var(--border-width) / 2) */
+	}
+}
+
+@keyframes ball-circle-lg {
+	from {
+		transform: rotate(0deg) translateY(99px); /* 5 * var(--ball-size) - (var(--border-width) / 2) */
+	}
+	to {
+		transform: rotate(360deg) translateY(99px); /* 5 * var(--ball-size) - (var(--border-width) / 2) */
+	}
+}
