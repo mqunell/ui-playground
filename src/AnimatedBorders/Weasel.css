@@ -1,0 +1,12 @@
+/* These values are NOT scoped to the component. This file being separate is purely for organization. */
+
+@import 'tailwindcss';
+
+@theme {
+	--animate-slow-spin: slow-spin 3.5s linear infinite;
+	@keyframes slow-spin {
+		to {
+			rotate: 360deg;
+		}
+	}
+}

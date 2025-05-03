@@ -1,7 +1,7 @@
 import clsx from 'clsx'
-import './Balls.css'
+import './Spinners.css'
 
-const Balls = () => (
+const Spinners = () => (
 	<>
 		<div
 			className={clsx(
@@ -15,7 +15,7 @@ const Balls = () => (
 			<div className="animate-loading-spin-lg col-[1] row-[1] size-2 rounded-full bg-slate-400"></div>
 		</div>
 
-		<div className="balls">
+		<div className="spinner">
 			<div></div>
 			<div></div>
 			<div></div>
@@ -23,4 +23,4 @@ const Balls = () => (
 	</>
 )
 
-export default Balls
+export default Spinners

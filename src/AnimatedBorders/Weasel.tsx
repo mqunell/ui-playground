@@ -1,5 +1,6 @@
 import clsx from 'clsx'
-import weasel from './assets/weasel.jpg'
+import weaselImage from '../assets/weasel.jpg'
+import './Weasel.css'
 
 const Weasel = () => (
 	<div
@@ -13,7 +14,7 @@ const Weasel = () => (
 			'after:animate-slow-spin after:absolute after:-inset-2 after:-z-[1] after:rounded-full after:bg-[conic-gradient(purple,#4f46e5,purple)] after:opacity-70 after:blur-sm', // Same as before::, but with blur and opacity
 		)}
 	>
-		<img src={weasel} className="aspect-square w-full rounded-full object-cover object-top" />
+		<img src={weaselImage} className="aspect-square w-full rounded-full object-cover object-top" />
 	</div>
 )
 

@@ -1,6 +1,6 @@
 /* These values are NOT scoped to the component. This file being separate is purely for organization. */
 
-/* Primarily Tailwind styles */
+/* V1: Primarily Tailwind styles */
 @import 'tailwindcss';
 
 @theme {
@@ -36,7 +36,7 @@
 	}
 }
 
-/* Primarily CSS styles */
+/* V2: Primarily CSS styles */
 /* TODO: The ball translates in the keyframes (the 3 and the 5) need to be updated for the offsets, which properly adjust the rings. Maybe also the largest ring if it isn't tied to the container size? */
 :root {
 	--ball-size: 20px;
@@ -47,7 +47,7 @@
 	--offset-mult-md: 6;
 }
 
-.balls {
+.spinner {
 	position: relative;
 	display: grid;
 	width: calc(var(--ball-size) * 10);
@@ -76,22 +76,22 @@
 	}
 }
 
-.balls,
-.balls::before,
-.balls::after {
+.spinner,
+.spinner::before,
+.spinner::after {
 	border-radius: 50%;
 	border-width: var(--border-width);
 	border-color: var(--ball-border-color);
 }
 
-.balls::before,
-.balls::after {
+.spinner::before,
+.spinner::after {
 	content: '';
 	position: absolute;
 	inset: 0;
 }
 
-.balls::before {
+.spinner::before {
 	width: calc(var(--ball-size) * var(--offset-mult-sm));
 	height: calc(var(--ball-size) * var(--offset-mult-sm));
 	transform: translate(
@@ -100,7 +100,7 @@
 	);
 }
 
-.balls::after {
+.spinner::after {
 	width: calc(var(--ball-size) * var(--offset-mult-md));
 	height: calc(var(--ball-size) * var(--offset-mult-md));
 	transform: translate(

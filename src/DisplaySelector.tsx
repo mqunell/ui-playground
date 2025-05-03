@@ -12,7 +12,7 @@ const DisplaySelector = ({ display, setDisplay }: Props) => (
 		{displays.map((d: Display) => (
 			<button
 				className={clsx(
-					'mb-4 bg-slate-300 px-3 py-1 hover:bg-slate-500 hover:text-white dark:bg-slate-700',
+					'mb-4 cursor-pointer bg-slate-200 px-3 py-1 hover:bg-slate-500 hover:text-white dark:bg-slate-700',
 					{ 'bg-slate-500! text-white': d === display },
 				)}
 				onClick={() => setDisplay(d)}

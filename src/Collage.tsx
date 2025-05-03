@@ -26,7 +26,7 @@ const CollageIcon = ({ gridArea, src, alt }: { gridArea: string; src: string; al
 const Collage = () => (
 	<div
 		style={{ gridTemplateAreas }}
-		className="grid max-w-[525px] min-w-[350px] grid-cols-7 grid-rows-5 gap-2 rounded-xl bg-slate-300 px-8 py-4 dark:bg-slate-600"
+		className="grid max-w-[525px] min-w-[350px] grid-cols-7 grid-rows-5 gap-2 rounded-xl border-4 border-slate-200 px-8 py-4 dark:border-white dark:bg-white"
 	>
 		<CollageIcon gridArea="react" src={ReactIcon} alt="React" />
 		<CollageIcon gridArea="ts" src={TypeScriptIcon} alt="TypeScript" />

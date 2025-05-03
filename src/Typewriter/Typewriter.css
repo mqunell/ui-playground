@@ -1,17 +1,8 @@
+/* These values are NOT scoped to the component. This file being separate is purely for organization. */
+
 @import 'tailwindcss';
 
 @theme {
-	/* Logos */
-	--animate-logo-spin: logo-spin infinite 20s linear;
-	@keyframes logo-spin {
-		from {
-			transform: rotate(0deg);
-		}
-		to {
-			transform: rotate(360deg);
-		}
-	}
-
 	/* Typewriter */
 	--animate-typewriter: typewriter-text 2s steps(14) forwards,
 		typewriter-cursor 1s step-end 2.5s infinite;
@@ -28,21 +19,6 @@
 			border-color: transparent;
 		}
 	}
-
-	/* Weasel */
-	--animate-slow-spin: slow-spin 3.5s linear infinite;
-	@keyframes slow-spin {
-		to {
-			rotate: 360deg;
-		}
-	}
-}
-
-/* Default theme (implemented as light theme) */
-/* https://developer.mozilla.org/en-US/docs/Web/CSS/:root */
-:root {
-	font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-	color-scheme: light dark; /* This automatically handles some light/dark theme colors: https://developer.mozilla.org/en-US/docs/Web/CSS/color-scheme */
 }
 
 .typewriter-0 {
@@ -60,15 +36,6 @@
 	animation:
 		typewriter-text-remains 2s steps(26) 8s forwards,
 		typewriter-cursor 1s step-end 10.5s infinite;
-}
-
-/* Switch to dark theme */
-@media (prefers-color-scheme: dark) {
-	:root {
-		/* color: rgba(255, 255, 255, 0.87); */
-		/* background-color: #242424; */
-		/* @apply bg-slate-700; */
-	}
 }
 
 @keyframes typewriter-text-deletes {

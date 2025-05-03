@@ -1,8 +1,5 @@
 import clsx from 'clsx'
-
-const TypewriterContainer = ({ children }: { children: React.ReactNode }) => (
-	<div className="grid place-items-center">{children}</div>
-)
+import './Typewriter.css'
 
 const TypewriterText = ({ index, children }: { index: number; children: React.ReactNode }) => (
 	<p
@@ -29,13 +26,13 @@ const Typewriter = () => (
 		</div>
 
 		{/* Multiple lines that "delete" and replace each other (styles applied via CSS) */}
-		<TypewriterContainer>
+		<div className="grid place-items-center">
 			{['This is a test', 'Continued', 'Okay all done yay it works'].map((text, index) => (
 				<TypewriterText key={index} index={index}>
 					{text}
 				</TypewriterText>
 			))}
-		</TypewriterContainer>
+		</div>
 	</div>
 )
 
